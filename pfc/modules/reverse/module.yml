@@ -1,0 +1,11 @@
+name: reverse
+aliases:
+- rev
+- reversed
+- reversd
+- revers
+- revrse
+- flip
+type: builtin
+description: reverses the order of bytes in a str or elements in a list
+main: ':ReverseModule'

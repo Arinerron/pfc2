@@ -1,0 +1,7 @@
+name: split
+aliases:
+- tolist
+- splice
+type: builtin
+description: splits a string at a string into a list
+main: ':SplitModule'

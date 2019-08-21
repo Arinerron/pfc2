@@ -1,0 +1,21 @@
+name: echo
+description: write something in the parameters
+type: builtin
+main: ':EchoModule'
+
+parameters:
+- name: no-line
+  aliases:
+  - noline
+  - no-newline
+  - nonewline
+  shortname: n
+  default: False
+  description: do not append a newline to the end of the string
+
+- name: content
+  alias: data
+  position: 1
+  multiple: true
+  description: the content to write to `output`
+

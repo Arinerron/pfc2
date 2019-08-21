@@ -1,0 +1,36 @@
+name: modules
+aliases:
+- mods
+- module
+- mod
+- plugins
+- plugin
+- extensions
+- extention
+main: ':ModulesModule'
+type: builtin
+description: pfc2's module manager
+
+parameters:
+- name: update
+  shortname: u
+  aliases:
+  - upgrade
+  - sync
+  - syncronize
+  - synchronize
+  - synchronise
+  - syncronise
+  shortaliases:
+  - U
+  description: upgrade all modules
+
+- name: install
+  shortname: i
+  aliases:
+  - instal
+  shortaliases:
+  - S
+  - I
+  description: install a module
+  arguments: 1 

@@ -1,0 +1,12 @@
+name: verbosity
+description: parameters for specifying how verbose a scan should be
+
+parameters:
+- name: verbosity
+  shortaliases: v
+  description: verbosity settings
+  map:
+  - high: 5
+  - medium: 3
+  - low: 1
+  type: int

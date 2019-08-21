@@ -1,0 +1,33 @@
+name: subdomains # the main command name
+aliases: # what other commands work, not in help menu
+- subdomain
+- subdoms
+- subdom
+- domains
+- domain
+- sd
+- subd
+- sub
+main: ':SubdomainsModule'
+type: recon
+description: Finds subdomains of the given domain(s) or domains of the given TLD(s) # for the help menu
+
+parameters:
+- name: domain # --domain, in help menu
+  shortname: d # -d, in help menu
+  aliases: # what to use with multiple dashes (--), not in help menu
+  - domains
+  - subdomain
+  - subdomains
+  - tlds
+  - tld
+  shortaliases: # what to use with a single dash (-), not in help menu
+  - s
+  - t
+  description: The domain(s) or TLD(s) to scan # description for the help menu
+  arguments: 1 # how many of the following parameters to consume as arguments (0 or 1)
+  default: [] # what to use if none is specified
+  multiple: true # should we convert to a list automatically?
+  type: str # what type to convert each element of the list or the single element to?
+
+- include: verbosity # includes all of the parameters from the verbosity map

@@ -1,0 +1,17 @@
+name: upper
+aliases:
+- up
+- uppercase
+- upper-case
+- upper case
+- upper cased
+- upper-cased
+- touppercase
+- caps
+- capitalize
+- capitalized
+- uppercased
+- tocaps
+type: builtin
+description: converts str to upper case
+main: ':UpperModule'

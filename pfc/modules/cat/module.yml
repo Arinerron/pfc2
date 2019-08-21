@@ -1,0 +1,29 @@
+name: cat
+type: builtin
+main: ':CatModule'
+description: writes from `output` to stdout
+
+parameters:
+- name: stdout
+  description: write to `stdout`
+  default: False
+  type: bool
+
+- name: stderr
+  description: write to `stderr`
+  default: False
+  type: bool
+  
+- name: output
+  description: write to `output`
+  default: True
+  type: bool
+  
+- name: file
+  shortname: f
+  description: the file to open and read contents from
+  position: 1
+  default: 
+  - '-'
+  multiple: true
+  type: str

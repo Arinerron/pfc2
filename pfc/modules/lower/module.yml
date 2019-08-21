@@ -1,0 +1,19 @@
+name: lower
+aliases:
+- down
+- lowercase
+- lower-case
+- lower case
+- lower cased
+- lower-cased
+- tolowercase
+- uncaps
+- nocaps
+- uncapitalize
+- uncapitalized
+- lowercased
+- removecaps
+- remove caps
+type: builtin
+description: converts str to lower case
+main: ':LowerModule'
