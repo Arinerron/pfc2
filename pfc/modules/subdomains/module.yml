@@ -8,7 +8,7 @@ aliases: # what other commands work, not in help menu
 - sd
 - subd
 - sub
-main: '__init__.py:SubdomainsModule'
+main: '__init__.py:SubdomainsModule' # python file to import : class name of the module in the python module
 type: recon
 description: Finds subdomains of the given domain(s) or domains of the given TLD(s) # for the help menu
 
@@ -31,4 +31,4 @@ parameters:
   multiple: true # should we convert to a list automatically?
   type: str # what type to convert each element of the list or the single element to?
 
-# - include: verbosity # includes all of the parameters from the verbosity map # TODO: support this
+# - include: verbosity # includes all of the parameters from the verbosity map # TODO: support this, it should import from auxiliary/configs/%s.yml
