@@ -57,3 +57,18 @@ TODO
 
 For developers:
 * check the `subdomains` module's `module.yml`, it's pretty heavily commented
+
+# Development
+
+open source! yay!
+
+## Get Involved
+todo add contact details or link to wiki on how to get involved and what needs to be changed/added
+
+## Team
+* Aaron Esau <[pfc@aaronesau.com](mailto:pfc@aaronesau.com)>
+* todo list contributors here
+
+## Donations
+
+donations are not accepted, see https://github.com/gorhill/uBlock/wiki/Why-don't-you-accept-donations
