@@ -11,6 +11,7 @@ pfc2 is the second generation of [pfc](https://github.com/Arinerron/pfc). It is 
 * improve the console
   * add tab completion
   * add fish-like up arrow completion
+* create a script to automatically generate verbose documentation based on each module's `module.yml`
 * prefix all py files with the same comments (shebang and license, and maybe author?)
 * write a script to scrape modules that have a `requirements.txt` and install those dependencies as well as the `requirements.txt` in the root directory
 * add cool radare-style quotes and ascii art on start, see `core.py` and search for "radare"
