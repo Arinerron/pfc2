@@ -19,6 +19,14 @@ class CatModule(Module):
 
                 if isinstance(content, list) or isinstance(content, set):
                     content = '\n'.join(content)
+                elif content is None and False: # TODO: fix BUG: here
+                    build = list()
+
+                    try:
+                        while True:
+                            build.append(input())
+                    except KeyboardInterrupt:
+                        content = '\n'.join(build)
             else:
                 try:
                     with open(src, 'r') as f:
@@ -32,19 +40,24 @@ class CatModule(Module):
                     context.status = FAILURE
                     continue
 
+            content = str(content)
+
+            if args.get('newline') and not content.endswith('\n'):
+                content += '\n'
+
             if args.get('stdout'):
-                sys.stdout.write(str(content))
+                sys.stdout.write(content)
                 sys.stdout.flush()
 
             if args.get('stderr'):
-                sys.stderr.write(str(content))
+                sys.stderr.write(content)
                 sys.stderr.flush()
 
             if args.get('output'):
                 if not context.output:
                     context.output = ''
 
-                context.output += str(content)
+                context.output += content
 
             if context.status != FAILURE:
                 context.status = SUCCESS

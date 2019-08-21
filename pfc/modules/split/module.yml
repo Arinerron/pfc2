@@ -5,3 +5,37 @@ aliases:
 type: builtin
 description: splits a string at a string into a list
 main: ':SplitModule'
+
+parameters:
+- name: delimiter
+  shortname: d
+  aliases:
+  - at
+  - on
+  default: '\n'
+  arguments: 1
+  position: 1
+  description: 'the character(s) to split on'
+- name: count
+  shortname: c
+  aliases:
+  - number
+  - numb
+  shortaliases:
+  - n
+  arguments: 1
+  type: int
+  default: -1
+  description: 'the number of times to split (-1 for unlimited)'
+- name: data
+  shortname: d
+  aliases:
+  - input
+  - file
+  - fd
+  type: str
+  position: 2
+  multiple: true
+  default:
+  - '-'
+  description: 'what to split'

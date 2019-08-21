@@ -23,7 +23,14 @@ parameters:
   shortname: f
   description: the file to open and read contents from
   position: 1
+  arguments: 1
   default: 
   - '-'
   multiple: true
   type: str
+
+- name: newline
+  shortname: n
+  description: should a trailing newline be appended if one does not exist
+  default: False
+  type: bool

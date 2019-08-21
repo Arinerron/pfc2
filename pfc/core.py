@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from pfc import module, tools
+from pfc import module, tools, colors
 
 import logging
 
@@ -29,13 +29,14 @@ class Core:
         args = command.get('arguments', [])
 
         context = module.Context(stdin, args)
+        context.core = self
 
         if command.get('command', None) in [None, '']:
             context.status = module.NA
             return context
         elif not command.get('command', None) in self.commands:
             context.status = module.NOT_FOUND
-            logging.warn('Command not found: %s' % command.get('command', '<none>'))
+            logging.warn('Command not found: ' + colors.reset + '%s' % command.get('command', '<none>'))
             return context
 
         command = self.commands[cmd]
@@ -62,7 +63,7 @@ class Core:
             'arguments' : [],
             'output' : {
                 'command' : 'cat',
-                'arguments' : ['--stdout']
+                'arguments' : ['--stdout', '--newline']
             }
         }
 

@@ -46,6 +46,8 @@ class ArgumentParser:
         # parse all arguments
         while len(arguments) != 0:
             argument = arguments.pop(0)
+            # print(argument) # BUG: parameters like --count are not interpreted correctly
+            # sample command: echo "echo ok this is\\\\nvery epic | split ' ' --count 3" | ./pfc2
 
             # temporary variables
             argument_specifier = None

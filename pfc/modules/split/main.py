@@ -9,12 +9,18 @@ import logging
 
 class SplitModule(Module):
     def execute(self, context):
-        splitat = ' '
+        # print(context.args) # TODO: Remove debug info and fix BUG: with splitting on delimiter ' '
+        data = context.args['data']
 
-        if len(context.args) >= 1:
-            splitat = context.args[0]
+        context.output = list()
 
-        context.output = context.stdin.split(splitat)
+        for d in data:
+            if d == '-':
+                d = context.stdin
+
+            context.output.extend(d.split(context.args['delimiter'], context.args['count']))
+
+        context.status = SUCCESS
 
         return context
 

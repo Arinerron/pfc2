@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from pfc.core import Core
-from pfc import tools
+from pfc import tools, colors
 
 #from curses import wrapper
 import readline
@@ -21,6 +21,8 @@ class Console:
             if not 'class_instance' in module:
                 module['class_instance'] = module['class'](self.core, name)
             module['class_instance'].start()
+
+        # TODO: Add one of those cool header thingies with random quotes like radare2
     
     def read_line(self, prompt = ''):
         return input(prompt)
@@ -51,16 +53,20 @@ class Console:
 
         while self.running:
             try:
-                line = self.read_line('pfc' + status_map.get(last_status, '-') + '> ')
+                line = self.read_line(colors.reset + colors.fg_green + colors.bold + 'pfc' + colors.reset + colors.bold + status_map.get(last_status, '-') + '> ' + colors.reset + colors.fg_cyan)
+                
+                sys.stdout.write(colors.reset)
+                sys.stdout.flush()
+
                 context = self.core.execute_command(self.core.parse_command(line))
                 last_status = context.status
-
-                #if not context.output is None:
-                #    print(context.output)
-            except (KeyboardInterrupt, EOFError) as e:
+            except EOFError as e:
+                self.running = False
+                print()
                 logging.info('Goodbye!')
-                exit(1)
-
+            except KeyboardInterrupt:
+                print()
+                logging.info('Use ^D or "quit" to exit.')
 
     def stop(self):
         for module in self.core.modules:

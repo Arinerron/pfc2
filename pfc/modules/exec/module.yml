@@ -1,0 +1,14 @@
+name: exec
+type: builtin
+main: ':ExecModule'
+description: executes the data provided as python, passing context through the variable name `context`. sets `context.output` to the evaluated result.
+
+parameters:
+- name: data
+  shortname: d
+  description: the data (or `-` for stdin) to execute
+  position: 1
+  default: 
+  - '-'
+  multiple: true
+  type: str
