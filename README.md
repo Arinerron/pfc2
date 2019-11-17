@@ -13,6 +13,7 @@ in no order...
 * improve the console
   * add tab completion
   * add fish-like up arrow completion
+* support streams for stdin/stdout
 * create standard objects that you can pass through stdin/stdout like `Domain` and `File` etc so that module devs don't end up writing their own non-standard crap, and that way modules can work together.
 * create a script to automatically generate verbose documentation based on each module's `module.yml`
 * prefix all py files with the same comments (shebang and license, and maybe author?)
