@@ -39,6 +39,7 @@ in no order...
   * Make the logging configuration global so that it's set once and reflects across all python modules
   * colors are broken too; all print out as green
 * add features to the shell:
+  * .pfcrc
   * environmental variables
   * variables
   * two types of quotes, not just '
