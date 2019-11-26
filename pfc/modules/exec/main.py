@@ -10,7 +10,7 @@ import logging, sys
 class ExecModule(Module):
     def execute(self, context):
         command = ' '.join(context.args['data'])
-        
+
         if command == '-':
             command = context.stdin
 
@@ -18,7 +18,7 @@ class ExecModule(Module):
             context.output = eval(command)
             context.status = SUCCESS
         except Exception as e:
-            logging.error('failed to evaluate command', exc_info = True)
+            logging.error('Failed to evaluate command', exc_info = True)
             context.status = FAILURE
 
         return context

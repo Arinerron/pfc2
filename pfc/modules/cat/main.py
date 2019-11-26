@@ -19,6 +19,10 @@ class CatModule(Module):
 
                 if isinstance(content, list) or isinstance(content, set):
                     content = '\n'.join(content)
+                elif content is None:
+                    # XXX: refactor so this isn't duplicated code
+                    context.success = SUCCESS
+                    return context
                 elif content is None and False: # TODO: fix BUG: here
                     build = list()
 
@@ -32,11 +36,11 @@ class CatModule(Module):
                     with open(src, 'r') as f:
                         content = f.read()
                 except FileNotFoundError as e:
-                    logging.error('file not found: %s' % src)
+                    logging.error('File not found: %s' % src)
                     context.status = FAILURE
                     continue
                 except PermissionError as e:
-                    logging.error('permission denied: %s' % src)
+                    logging.error('Permission denied: %s' % src)
                     context.status = FAILURE
                     continue
 

@@ -26,10 +26,6 @@ TODO:
     * strip colors?
     * print dates for debug messages too?
     * verbosity? (reflected across all modules)
-* fix logging.
-  * Right now, it prints the status like `INFO:` as text, but eventually I want it like `[+]`, `[-]`, `[*]`, `[!]`, etc.
-  * Make the logging configuration global so that it's set once and reflects across all python modules
-  * colors are broken too; all print out as green
 * add features to the shell:
   * environmental variables
   * variables

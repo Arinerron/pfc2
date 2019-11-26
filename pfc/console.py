@@ -23,7 +23,7 @@ class Console:
             module['class_instance'].start()
 
         # TODO: Add one of those cool header thingies with random quotes like radare2
-    
+
     def read_line(self, prompt = ''):
         return input(prompt)
 
@@ -35,10 +35,10 @@ class Console:
         while self.running:
             y, x = self.window.getyx()
             char = self.window.getkey()
-            
+
             if not char == 'KEY_UP':
                 build += char
-            
+
             self.window.addstr(max_height - 1, 0, build)
             self.window.refresh()
 
@@ -51,14 +51,23 @@ class Console:
             1 : '='
         }
 
+        running_something = False # this is used for the ^D message
+
         while self.running:
             try:
+                running_something = False
+
                 line = self.read_line(colors.reset + colors.fg_green + colors.bold + 'pfc' + colors.reset + colors.bold + status_map.get(last_status, '-') + '> ' + colors.reset + colors.fg_cyan)
-                
+
                 sys.stdout.write(colors.reset)
                 sys.stdout.flush()
 
+                running_something = True
+
                 context = self.core.execute_command(self.core.parse_command(line))
+
+                running_something = False
+
                 last_status = context.status
             except EOFError as e:
                 self.running = False
@@ -66,7 +75,9 @@ class Console:
                 logging.info('Goodbye!')
             except KeyboardInterrupt:
                 print()
-                logging.info('Use ^D or "quit" to exit.')
+
+                if not running_something:
+                    logging.info('Use ^D or "quit" to exit.')
 
     def stop(self):
         for module in self.core.modules:
