@@ -39,7 +39,6 @@ in no order...
   * environmental variables
   * variables
   * two types of quotes, not just '
-  * add a feature to execute a shell command instead of pfc command if it is prefixed with `!` or something
 * Add modules like these:
   * `help` - every module has description and name/shortname. Just collect and pretty print everything. If the user specifies a specific module (or many modules), list the specific help info for each including the parameters and their descriptions.
   * `modules` - eventually will be able to `modules install` or `modules remove` modules. You'll be able to install by a git url and it will clone it for you. `modules update` git pulls the whole repo to update and pulls each of the modules that came from git.
