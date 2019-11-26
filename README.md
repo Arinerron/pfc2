@@ -6,8 +6,16 @@ pfc2 is the second generation of [pfc](https://github.com/Arinerron/pfc). It is 
 
 # Features
 
-TODO:
+## TODO:
+in no order...
+
 * `grep -ri '\(FIXME\|XXX\|HACK\|BUG\|TODO\)'`
+* improve the console
+  * add tab completion
+  * add fish-like up arrow completion
+* support streams for stdin/stdout
+* create standard objects that you can pass through stdin/stdout like `Domain` and `File` etc so that module devs don't end up writing their own non-standard crap, and that way modules can work together.
+* create a script to automatically generate verbose documentation based on each module's `module.yml`
 * prefix all py files with the same comments (shebang and license, and maybe author?)
 * write a script to scrape modules that have a `requirements.txt` and install those dependencies as well as the `requirements.txt` in the root directory
 * add cool radare-style quotes and ascii art on start, see `core.py` and search for "radare"
@@ -27,6 +35,7 @@ TODO:
     * print dates for debug messages too?
     * verbosity? (reflected across all modules)
 * add features to the shell:
+  * .pfcrc
   * environmental variables
   * variables
   * two types of quotes, not just '
