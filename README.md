@@ -30,7 +30,6 @@ TODO:
   * environmental variables
   * variables
   * two types of quotes, not just '
-  * if the command doesn't exist but is an actual command on the system (outside of pfc shell), execute it like Metasploit does.
   * add a feature to execute a shell command instead of pfc command if it is prefixed with `!` or something
 * Add modules like these:
   * `help` - every module has description and name/shortname. Just collect and pretty print everything. If the user specifies a specific module (or many modules), list the specific help info for each including the parameters and their descriptions.
