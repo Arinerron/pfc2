@@ -7,12 +7,39 @@ from pfc import tools, colors
 import readline
 import sys, logging
 
+class PFCCompleter:
+    def __init__(self, core):
+        self.core = core
+
+    def complete(self, text, state):
+        output = None
+
+        if state == 0:
+            if text:
+                self.matches = [ s for s in list(self.core.modules.keys()) if s and s.startswith(text) ]
+            else:
+                self.matches = list(self.core.modules.keys())[:]
+
+        try:
+            response = self.matches[state]
+        except IndexError:
+            response = None
+
+        return response
+
 class Console:
     def __init__(self, window = None, core = None):
         self.running = True
 
         self.window = window
         self.core = (Core() if core is None else core)
+
+        # tab completion
+        self.completer = PFCCompleter(self.core)
+        readline.set_completer(self.completer.complete)
+        readline.parse_and_bind('tab: complete')
+
+        # start console
         self.start()
         self.execute()
 

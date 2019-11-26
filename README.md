@@ -11,7 +11,6 @@ in no order...
 
 * `grep -ri '\(FIXME\|XXX\|HACK\|BUG\|TODO\)'`
 * improve the console
-  * add tab completion
   * add fish-like up arrow completion
 * support streams for stdin/stdout
 * create standard objects that you can pass through stdin/stdout like `Domain` and `File` etc so that module devs don't end up writing their own non-standard crap, and that way modules can work together.
