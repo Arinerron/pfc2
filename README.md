@@ -10,6 +10,9 @@ pfc2 is the second generation of [pfc](https://github.com/Arinerron/pfc). It is 
 in no order...
 
 * `grep -ri '\(FIXME\|XXX\|HACK\|BUG\|TODO\)'`
+* add a auxiliary module to determine the language a backend is written in
+  * then, add a module to auto-run `dirsearch -u <url> -e <.extension>` and parse it
+  * then, add a feature to multithread and crawl the webpage. build a bigger list of urls.
 * improve the console
   * add fish-like up arrow completion
 * support streams for stdin/stdout
