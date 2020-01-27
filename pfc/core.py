@@ -3,7 +3,7 @@
 from pfc import module, tools, colors
 
 import subprocess, os
-import logging
+from pfc import logger
 
 class Core:
     def __init__(self):
@@ -69,7 +69,7 @@ class Core:
 
                 if len(stderr) != 0:
                     for line in stderr.strip().split(b'\n'):
-                        logging.error(line.decode('utf-8'))
+                        logger.error(line.decode('utf-8'))
 
                 context.status = status
                 context.output = (None if len(stdout) == 0 else stdout.decode('utf-8'))
@@ -85,7 +85,7 @@ class Core:
 
         if not command_exists:
             context.status = module.NOT_FOUND
-            logging.warn('Command not found: ' + colors.reset + '%s' % command.get('command', '<none>'))
+            logger.warn('Command not found: ' + colors.reset + '%s' % command.get('command', '<none>'))
             return context
 
         command = self.commands[cmd]

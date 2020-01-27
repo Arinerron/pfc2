@@ -5,7 +5,8 @@ from pfc import tools, colors
 
 #from curses import wrapper
 import readline
-import sys, logging
+import sys
+from pfc import logger
 
 class PFCCompleter:
     def __init__(self, core):
@@ -99,12 +100,12 @@ class Console:
             except EOFError as e:
                 self.running = False
                 print()
-                logging.info('Goodbye!')
+                logger.info('Goodbye!')
             except KeyboardInterrupt:
                 print()
 
                 if not running_something:
-                    logging.info('Use ^D or "quit" to exit.')
+                    logger.info('Use ^D or "quit" to exit.')
 
     def stop(self):
         for module in self.core.modules:

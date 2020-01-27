@@ -5,7 +5,7 @@ from pfc.module import *
 
 import pfc.tools as tools
 
-import logging
+from pfc import logger
 
 class SplitModule(Module):
     def execute(self, context):

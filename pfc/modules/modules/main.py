@@ -5,7 +5,7 @@ from pfc.module import *
 
 import pfc.tools as tools
 
-import logging
+from pfc import logger
 
 class ModulesModule(Module):
     def execute(self, context):
@@ -16,7 +16,7 @@ class ModulesModule(Module):
         remove = parameters.get('remove', [])
 
         if len(update) != 0:
-            logging.info('Installing modules...')
+            logger.info('Installing modules...')
 
         for module in update:
             tools.update(module)

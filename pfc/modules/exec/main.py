@@ -5,7 +5,8 @@ from pfc.module import *
 
 import pfc.tools as tools
 
-import logging, sys
+from pfc import logger
+import sys
 
 class ExecModule(Module):
     def execute(self, context):
@@ -18,7 +19,7 @@ class ExecModule(Module):
             context.output = eval(command)
             context.status = SUCCESS
         except Exception as e:
-            logging.error('Failed to evaluate command', exc_info = True)
+            logger.error('Failed to evaluate command', exc_info = True)
             context.status = FAILURE
 
         return context

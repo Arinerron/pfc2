@@ -3,7 +3,8 @@
 
 from pfc import tools, argparser
 
-import sys, os, yaml, logging, importlib.util
+import sys, os, yaml, importlib.util
+from pfc import logger
 
 NA = -1
 SUCCESS = 0
@@ -27,7 +28,7 @@ def import_module(code, name, directory):
             class_name = class_name2
         else:
             main_file = 'Module'
-    
+
     # import the module from the file
     spec = importlib.util.spec_from_file_location('pfc.modules.%s' % name, directory + '/' + main_file)
     module = importlib.util.module_from_spec(spec)
@@ -54,7 +55,7 @@ def import_all_modules(core, modules_directory, import_modules = None):
     modules = dict()
 
     if not os.path.isdir(modules_directory):
-        logging.fatal('Modules directory %s does not exist.' % modules_directory)
+        logger.fatal('Modules directory %s does not exist.' % modules_directory)
         return modules
 
     for directory in os.listdir(modules_directory):
@@ -64,16 +65,16 @@ def import_all_modules(core, modules_directory, import_modules = None):
                 continue
 
             module_yml = ''
-            
+
             # two required files
             if 'module.yml' in os.listdir(modules_directory + '/' + directory):
                 with open(modules_directory + '/' + directory + '/module.yml', 'r') as f:
                     module_yml = yaml.safe_load(f.read())
- 
+
                 # import the module and store it in the dict
                 modules[module_yml.get('name', directory)] = import_module(module_yml, module_yml.get('name', directory), modules_directory + '/' + directory)
         except Exception as e:
-            logging.fatal('Failed to import module %s.' % directory, exc_info = True)
+            logger.fatal('Failed to import module %s.' % directory, exc_info = True)
 
     return modules
 
@@ -98,7 +99,7 @@ class Module:
 
     def start(self):
         return True
-    
+
     def stop(self):
         return True
 

@@ -31,7 +31,7 @@ in no order...
 * clean up the subdomains tool, it's pretty messy.
 * create a config file for pfc2
   * create a module like `config set/get/list/delete/load/save/reset` that lets you mess with config temporarily or permanently mess with configuration settings. these settings should reflect in environmental variables (will be added later too)
-  * you should be able to configure things like logging
+  * you should be able to configure things like logger
     * output file, optional
     * strip colors?
     * print dates for debug messages too?

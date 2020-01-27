@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os, sys
+from pfc import logger
 
 '''
 get the location of the module in `module`
@@ -46,4 +47,3 @@ move the terminal cursor by the offset
 def move(curses, offset):
 	y,x = curses.getyx()
 	curses.move(y,x - offset)
-

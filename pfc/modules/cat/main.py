@@ -5,7 +5,8 @@ from pfc.module import *
 
 import pfc.tools as tools
 
-import logging, sys
+from pfc import logger
+import sys
 
 class CatModule(Module):
     def execute(self, context):
@@ -36,11 +37,11 @@ class CatModule(Module):
                     with open(src, 'r') as f:
                         content = f.read()
                 except FileNotFoundError as e:
-                    logging.error('File not found: %s' % src)
+                    logger.error('File not found: %s' % src)
                     context.status = FAILURE
                     continue
                 except PermissionError as e:
-                    logging.error('Permission denied: %s' % src)
+                    logger.error('Permission denied: %s' % src)
                     context.status = FAILURE
                     continue
 
