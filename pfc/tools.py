@@ -47,3 +47,17 @@ move the terminal cursor by the offset
 def move(curses, offset):
 	y,x = curses.getyx()
 	curses.move(y,x - offset)
+
+'''
+sanitize a filename
+'''
+def sanitize_fname(fname):
+    output = ''
+
+    whitelist = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.'
+
+    for s in fname:
+        if s in whitelist:
+            output += s
+
+    return outpu
